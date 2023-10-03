@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-# Create your views here.
+
+class CarsView(APIView):
+    def get(self, *args, **kwargs):
+        print(self.request.query_params.dict())
+        return Response('get response')
