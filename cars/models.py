@@ -8,7 +8,7 @@ from django.db import models
 # - кількість місць
 # - тип кузову
 # - об'єм двигуна (float)
-# less1
+# less11
 class CarModel(models.Model):
     brand = models.CharField(max_length=25)
     year = models.IntegerField()
