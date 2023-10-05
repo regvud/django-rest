@@ -1,14 +1,10 @@
 from django.db import models
 
 
-# Create your models here.
-
-# - марка машини
-# - рік випуску
-# - кількість місць
-# - тип кузову
-# - об'єм двигуна (float)
 class CarModel(models.Model):
+    class Meta:
+        db_table = 'cars'
+
     brand = models.CharField(max_length=25)
     year = models.IntegerField()
     seats_count = models.IntegerField()
