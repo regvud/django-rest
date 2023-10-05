@@ -1,4 +1,4 @@
-from django.db.models import QuerySet
+from django.db.models import QuerySet, Q
 from django.http import QueryDict
 from rest_framework.serializers import ValidationError
 
@@ -12,13 +12,7 @@ def car_filter(cars: QueryDict) -> QuerySet:
         match k:
             # brand
             case 'brand':
-                qs = qs.filter(brand=v)
-            case 'brand_contains':
-                qs = qs.filter(brand__contains=v)
-            case 'brand_ends':
-                qs = qs.filter(brand__endswith=v)
-            case 'brand_starts':
-                qs = qs.filter(brand__startswith=v)
+                qs = qs.filter(Q(brand=v) | Q(brand__contains=v) | Q(brand__startswith=v) | Q(brand__endswith=v))
 
             case 'asc_brand':
                 qs = qs.order_by('brand')
@@ -61,13 +55,8 @@ def car_filter(cars: QueryDict) -> QuerySet:
 
             # body_type
             case 'body_type':
-                qs = qs.filter(body_type=v)
-            case 'body_type_contains':
-                qs = qs.filter(body_type__contains=v)
-            case 'body_type_ends':
-                qs = qs.filter(body_type__endswith=v)
-            case 'body_type_starts':
-                qs = qs.filter(body_type__startswith=v)
+                qs = qs.filter(
+                    Q(body_type=v) | Q(body_type__contains=v) | Q(body_type__startswith=v) | Q(body_type__endswith=v))
 
             case 'asc_body_type':
                 qs = qs.order_by('body_type')
