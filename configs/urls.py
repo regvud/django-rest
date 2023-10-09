@@ -14,12 +14,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
 
-from apps.cars.views import CarsListCreateView
-from apps.cars.views import CarRetrieveUpdateDestroy
+from django.urls import include, path
 
 urlpatterns = [
-    path('cars', CarsListCreateView.as_view()),
-    path('cars/<int:pk>', CarRetrieveUpdateDestroy.as_view())
+    path('cars', include('apps.cars.urls')),
 ]
