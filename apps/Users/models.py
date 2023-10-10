@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+from core.models import CoreModel
+
+
+class UsersModel(CoreModel, models.Model):
+    class Meta:
+        db_table = 'users'
+
+    name = models.CharField(max_length=20)
