@@ -14,4 +14,4 @@ class CarModel(CoreModel, models.Model):
     seats_count = models.IntegerField()
     body_type = models.CharField(max_length=25)
     engine_volume = models.FloatField()
-    auto_park = models.ForeignKey(AutoParkModel, on_delete=models.CASCADE, related_name='cars')
+    auto_park = models.ForeignKey(AutoParkModel, on_delete=models.CASCADE, related_name='cars', null=True)

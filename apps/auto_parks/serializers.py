@@ -9,7 +9,7 @@ class AutoParkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AutoParkModel
-        fields = ('id', 'name', 'created_at', 'updated_at', 'cars')
+        fields = ('id', 'name', 'created_at', 'updated_at', 'cars', 'user_id')
 
 
 class AutoParkShowCarsSerializer(serializers.ModelSerializer):
