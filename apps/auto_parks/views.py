@@ -7,7 +7,7 @@ from apps.cars.serializers import CarSerializer
 
 
 # Create your views here.
-class AutoParkListCreateView(generics.ListCreateAPIView):
+class AutoParkListView(generics.ListAPIView):
     queryset = AutoParkModel.objects.all()
     serializer_class = AutoParkSerializer
 
